@@ -5,60 +5,58 @@ SEC:A SEM: III BRANCH: ISE*/
 
 #include<stdio.h>//pre processor directives
 
-#define MAX 4
+#define MAX 4 //queue array size 
 
-int cqueue_arr[MAX];
-int front = -1;
-int rear = -1;
+int cqueue_arr[MAX]; //declaration of the circular queue array 
+int front = -1; //declaraion and intialization of the front to -1
+int rear = -1;//declaration and intialization of the front to -1
 
-/*Begin of insert*/
-void enqueue(int item)
+
+void enqueue(int item) //function to enqueue
 {
-	if((front == 0 && rear == MAX-1) || (front == rear+1))
+	if((front == 0 && rear == MAX-1) || (front == rear+1)) //circular queue overflow condition 
 	{
-		printf("Queue Overflow \n");
+		printf("Queue Overflow \n"); //displays message 
 		return;
 	}
-	if (front == -1)  /*If queue is empty */
+	if (front == -1)  // if queue is empty
 	{
-		front = 0;
-		rear = 0;
+		front = 0; //setting front to 0 
+		rear = 0;//setting rear to 0 
 	}
 	else
 	{
-		if(rear == MAX-1)	/*rear is at last position of queue */
-			rear = 0;
+		if(rear == MAX-1) //indicates that only one element is present 	
+			rear = 0; //setting rear to 0 
 		else
-			rear = rear+1;
+			rear = rear+1; //incrementing rear
 	}
-	cqueue_arr[rear] = item ;
+	cqueue_arr[rear] = item ; //item is inserted 
 }
 
-void dequeue()
+void dequeue() //function to dequeue element 
 {
-	if (front == -1)
+	if (front == -1) //underflow condition 
 	{
 		printf("Queue Underflow\n");
 		return ;
 	}
-	printf("Element deleted from queue is : %d\n",cqueue_arr[front]);
-	if(front == rear) /* queue has only one element */
+	printf("Element deleted from queue is : %d\n",cqueue_arr[front]); //prints item to be deleted 
+	if(front == rear) //single element in queue 
 	{
-		front = -1;
-		rear=-1;
+		front = -1;//set front to -1
+		rear=-1;//set rear to -1
 	}
-	else
+	else //otherwise
 	{	
-		if(front == MAX-1)
-			front = 0;
+		if(front == MAX-1) //if front is at the last element
+			front = 0; //set front to zero 
 		else
-			front = front+1;
+			front = front+1; //increment front 
 	}
 }
-/*End of del() */
 
-/*Begin of display*/
-void display()
+void display() //function to dispay elements of the circular queue
 {
 	int front_pos = front,rear_pos = rear; //creating two variables front_pos and rear_pos and initializing them to front and rear 
 	if(front == -1) // condition for an empty queue
