@@ -1,6 +1,4 @@
-/* NAME : G SRI PRABHA SUMANA 
-USN: 1NT21IS058
-SEC:A SEM: III BRANCH: ISE*/
+
 
 
 #include<stdio.h>   //pre processor directives
